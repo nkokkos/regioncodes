@@ -1,0 +1,21 @@
+sqlite:
+  :adapter: sqlite
+  :database: vendor/plugins/regioncodes/test/regioncodes_plugin.sqlite.db
+
+sqlite3:
+  :adapter: sqlite3
+  :database: vendor/plugins/regioncodes/test/regioncodes_plugin.sqlite.db
+
+postgresql:
+  :adapter: postgresql
+  :username: postgres
+  :password: postgres
+  :database: regioncodes_plugin_test
+  :min_messages: ERROR
+
+mysql:
+  :adapter: mysql
+  :host: localhost
+  :username: root
+  :password: password
+  :database: regioncodes_plugin_test
