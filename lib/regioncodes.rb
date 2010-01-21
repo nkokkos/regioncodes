@@ -1,4 +1,3 @@
-
 Dir.glob(File.join(File.dirname(__FILE__), "db", "migrate", "*")).each do |file| 
   require file 
 end 
@@ -8,4 +7,5 @@ end
   $LOAD_PATH << path
   ActiveSupport::Dependencies.load_paths << path 
   ActiveSupport::Dependencies.load_once_paths.delete(path) 
+  puts "..inserting plugin models"
 end
