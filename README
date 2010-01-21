@@ -1,13 +1,37 @@
 Regioncodes
 ======
 
-Unfinished. Currently, unusable.
+Unfinished. Currently, partly unusable.
+
+What this gem currenly does:
+
+It inserts a table/model into your application called "regioncodes".
+
+It also provides tasks for inserting the table and importing the data from the data folder.
 
 
 Example
 =======
 
-Example goes here.
+
+How to install this plugin within your application:
+
+ruby script/plugin install git://github.com/nkokkos/regioncodes.git
+
+
+How to create/migrate the regioncodes table
+
+At the root of your application do :
+
+rake db:migrate:regioncodes
+
+
+How to insert the data into the table (it will take a long time). 
+
+rake regioncodes:insertdata
+
+If want to test the insertdata task, go to the tasks folder to choose a 
+different smaller file to import from the data folder (test_data.csv)
 
 
 Copyright (c) 2010 [Nick Kokkos], released under the MIT license
