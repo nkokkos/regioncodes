@@ -1,22 +1,26 @@
 Regioncodes
 ======
 
-Unfinished. Currently, partly unusable.
+Unfinished. Currently, partly usable.
 
 What this gem currenly does:
 
 It inserts a table/model into your application called "regioncodes".
 
-It also provides tasks for inserting the table and importing the data from the data folder.
+It also provides tasks for inserting/migrating the table and importing 
+the region data from the data folder.
+
+Regioncodes depends on fastercsv plugin.
 
 
 Example
 =======
 
 
-How to install this plugin within your application:
+How to install this plugin within your Ruby on Rails application:
 
 ruby script/plugin install git://github.com/nkokkos/regioncodes.git
+
 
 
 How to create/migrate the regioncodes table
@@ -26,12 +30,16 @@ At the root of your application do :
 rake db:migrate:regioncodes
 
 
-How to insert the data into the table (it will take a long time). 
+
+How to insert the data (about 20,000+ records) into the table 
+(it will take a long time!): 
 
 rake regioncodes:insertdata
 
-If want to test the insertdata task, go to the tasks folder to choose a 
-different smaller file to import from the data folder (test_data.csv)
+
+If you want to test the insertdata task, go to the tasks folder and modify the
+task command, in order to import a different smaller file from the 
+data folder (e.g test_data_csv)
 
 
 Copyright (c) 2010 [Nick Kokkos], released under the MIT license
