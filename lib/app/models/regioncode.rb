@@ -46,7 +46,6 @@ class Regioncode < ActiveRecord::Base
     # ActiveRecord is fine but I use find_by_sql 'cause I believe sql engine should do most the 
     # work
 
-
     # the implementation is far from perfect but it works.
     # you need to follow some rules:
     # If you want to get communes, you must pass as a parameter to self.commune 
@@ -66,12 +65,13 @@ class Regioncode < ActiveRecord::Base
       elsif str.size == 1 # there is only one character (you passed "0", for example) 
             search = str.to_s + "%"
             Regioncode.find_by_sql(["select description, code from regioncodes where code_index = 1 and code like ? ", search])
-      elsif str.size > 1 
+      elsif str.size == 8 # you passed the whole 8 ascii code, that will get you all codes which begin with the first char 
             search = str[0].to_s + "%"
             Regioncode.find_by_sql(["select description, code from regioncodes where code_index = 1 and code like ? ", search])
       end
           
     end #def self.geographical_region(str="") 
+
 
     def self.department(str="")
       if str.empty? 
