@@ -1,7 +1,38 @@
 class Regioncode < ActiveRecord::Base
+    # Regioncode table has three fields: code_index, code and description
+    # code_index has values from 1 to 6 
+    # code has a unique for every entry in the table
+    # description contains the name of region; that being minicipality, department or commune
+
+    # Here's how I implemented the retrieval:
     
-    #added class method to return geographical region. Right now Greece is divided into 10 geographical regions
-    #( 
+    # code has always a range of 8 ascii characters.  Let's use the entry:
+    # code_index, code, description
+    # 6;01010101;лЕСОКЭЦЦИОМ,ТО;
+    # as an example.
+    
+    # the very first character "0" represents the region of Greece where this entry resides; therefore
+    # for "0" the region is "коипг стеяеа еккас йаи еубоиа"
+    
+    # the two first characters combined represent the department (Nomos) where this entry resides
+    # for "01" the department is "молос аитыкиас йаи айаямамиас"
+    
+    # the 4 first characters combined represent the municipality where this entry resides
+    # for "0101" the municipality is "дглос иеяас покгс лесокоцциоу"
+    
+    # the 6 first characters combined represent the administrative district where this entry resides
+    # for 010101 the district is "т.д.лЕСОКОЦЦъОУ"
+    
+    # and finally the whole 8 characters represent the commune where this entry resides
+    # for 01010101 the commune is лЕСОКЭЦЦИОМ
+    
+    # So the level we use is коипг стеяеа еккас йаи еубоиа-> молос аитыкиас йаи айаямамиас
+    # -> дглос иеяас покгс лесокоцциоу->т.д.лЕСОКОЦЦъОУ->лЕСОКЭЦЦИОМ
+    
+    # the above combined with the code_index level lets you retrive the entries quickly:
+    
+
+    
     
     def 
        self.geografical_region(str)
