@@ -8,26 +8,26 @@ class Regioncode < ActiveRecord::Base
     
     # code has always a range of 8 ascii characters.  Let's use the entry:
     # code_index, code, description
-    # 6;01010101;Ìåóïëüããéïí,ôï;
+    # 6;01010101;ÎœÎµÏƒÎ¿Î»ÏŒÎ³Î³Î¹Î¿Î½,Ï„Î¿;
     # as an example.
     
     # the very first character "0" represents the region of Greece where this entry resides; therefore
-    # for "0" the region is "ËÏÉÐÇ ÓÔÅÑÅÁ ÅËËÁÓ ÊÁÉ ÅÕÂÏÉÁ"
+    # for "0" the region is "Î›ÎŸÎ™Î Î— Î£Î¤Î•Î¡Î•Î‘ Î•Î›Î›Î‘Î£ ÎšÎ‘Î™ Î•Î¥Î’ÎŸÎ™Î‘"
     
     # the two first characters combined represent the department (Nomos) where this entry resides
-    # for "01" the department is "ÍÏÌÏÓ ÁÉÔÙËÉÁÓ ÊÁÉ ÁÊÁÑÍÁÍÉÁÓ"
+    # for "01" the department is "ÎÎŸÎœÎŸÎ£ Î‘Î™Î¤Î©Î›Î™Î‘Î£ ÎšÎ‘Î™ Î‘ÎšÎ‘Î¡ÎÎ‘ÎÎ™Î‘Î£"
     
     # the 4 first characters combined represent the municipality where this entry resides
-    # for "0101" the municipality is "ÄÇÌÏÓ ÉÅÑÁÓ ÐÏËÇÓ ÌÅÓÏËÏÃÃÉÏÕ"
+    # for "0101" the municipality is "Î”Î—ÎœÎŸÎ£ Î™Î•Î¡Î‘Î£ Î ÎŸÎ›Î—Î£ ÎœÎ•Î£ÎŸÎ›ÎŸÎ“Î“Î™ÎŸÎ¥"
     
     # the 6 first characters combined represent the administrative district where this entry resides
-    # for 010101 the district is "Ô.Ä.Ìåóïëïããßïõ"
+    # for 010101 the district is "Î¤.Î”.ÎœÎµÏƒÎ¿Î»Î¿Î³Î³Î¯Î¿Ï…"
     
     # and finally the whole 8 characters represent the commune where this entry resides
-    # for 01010101 the commune is Ìåóïëüããéïí
+    # for 01010101 the commune is ÎœÎµÏƒÎ¿Î»ÏŒÎ³Î³Î¹Î¿Î½
     
-    # So the level we use is ËÏÉÐÇ ÓÔÅÑÅÁ ÅËËÁÓ ÊÁÉ ÅÕÂÏÉÁ-> ÍÏÌÏÓ ÁÉÔÙËÉÁÓ ÊÁÉ ÁÊÁÑÍÁÍÉÁÓ
-    # -> ÄÇÌÏÓ ÉÅÑÁÓ ÐÏËÇÓ ÌÅÓÏËÏÃÃÉÏÕ->Ô.Ä.Ìåóïëïããßïõ->Ìåóïëüããéïí
+    # So the level we use is Î›ÎŸÎ™Î Î— Î£Î¤Î•Î¡Î•Î‘ Î•Î›Î›Î‘Î£ ÎšÎ‘Î™ Î•Î¥Î’ÎŸÎ™Î‘-> ÎÎŸÎœÎŸÎ£ Î‘Î™Î¤Î©Î›Î™Î‘Î£ ÎšÎ‘Î™ Î‘ÎšÎ‘Î¡ÎÎ‘ÎÎ™Î‘Î£
+    # -> Î”Î—ÎœÎŸÎ£ Î™Î•Î¡Î‘Î£ Î ÎŸÎ›Î—Î£ ÎœÎ•Î£ÎŸÎ›ÎŸÎ“Î“Î™ÎŸÎ¥->Î¤.Î”.ÎœÎµÏƒÎ¿Î»Î¿Î³Î³Î¯Î¿Ï…->ÎœÎµÏƒÎ¿Î»ÏŒÎ³Î³Î¹Î¿Î½
     
     # the above combined with the code_index level lets you retrive the entries quickly:
     
